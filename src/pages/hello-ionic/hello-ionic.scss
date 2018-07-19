@@ -1,3 +1,26 @@
 page-hello-ionic {
+	  .signin {
+          border-radius: 30px !important;
+          padding-left: 10px !important;
+          margin-bottom: 10px;
+          background-color: #202836;
+          opacity: 0.7;
+          font-size: 0.9em;
+      }
+      .signup {
+          border-radius: 30px !important;
+          padding-left: 10px !important;
+          margin-bottom: 10px;
+          opacity: 0.7;
+          font-size: 0.9em;
+      }
 
+	.scroll-content {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		background-color: #EAEDF4;
+	}
 }
