@@ -1,19 +1,20 @@
-<ion-menu [content]="content" id = "menu">
-
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-menu [content]="content" id = "menu" type="push">
   <ion-content>
-    <ion-list>
+    <div class="logo">
+      <img src="assets/imgs/appicon.svg" alt="Ionic logo">
+    </div>
+    <ion-list no-lines>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon item-start [name]="p.icon"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
+    <ion-footer>
+      <ion-item no-lines no-border no-shadow>
+          <a><ion-icon name ="ios-power-outline"></ion-icon></a>
+      </ion-item>
+  </ion-footer>
   </ion-content>
-
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main name="app"></ion-nav>

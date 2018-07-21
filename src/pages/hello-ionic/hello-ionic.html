@@ -1,29 +1,30 @@
 <ion-content padding>
-  <div class="logo">
-    <img src="assets/imgs/appicon.svg" alt="Ionic logo">
-  </div>
-  <p>Sign in</p>
-  <ion-list no-line>
-    <ion-item>
-      <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
+  <form (submit)="login()">
+    <div class="logo">
+    </div>
+    <p>Sign in</p>
+    <ion-list no-line>
+      <ion-item>
+        <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
 
-      <ion-input type="text" placeholder="Username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
-      <ion-input type="password" placeholder="Password"></ion-input>
-    </ion-item>
-    <a color = "greyoobic" id="forgot">Forgot password?</a>
-    <p color = "primary">Sign in with</p>
-    <a> <ion-icon name="logo-facebook" id="fb"></ion-icon></a>
-    <ion-row responsive-sm>
-      <ion-col>
-        <button ion-button block outline class="signup" >Sign Up</button>
-      </ion-col>
-      <ion-col>
-        <button ion-button block outline class="signin" >Sign In</button>
-      </ion-col>
-    </ion-row>
-  </ion-list>
- <a color = "greyoobic"><u>Terms and conditions</u></a>
+        <ion-input type="text" placeholder="Username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
+        <ion-input type="password" placeholder="Password"></ion-input>
+      </ion-item>
+      <a color = "greyoobic" id="forgot">Forgot password?</a>
+      <p color = "primary">Sign in with</p>
+      <a> <ion-icon name="logo-facebook" id="fb"></ion-icon></a>
+      <ion-row responsive-sm>
+        <ion-col>
+          <button ion-button block outline class="signup" >Sign Up</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block outline class="signin" >Sign In</button>
+        </ion-col>
+      </ion-row>
+    </ion-list>
+   <a color = "greyoobic"><u>Terms and conditions</u></a>
+</form>
 </ion-content>

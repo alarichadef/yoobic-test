@@ -29,9 +29,11 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First dd', component: ListPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Dashboard', component: ListPage,icon: 'ios-image-outline' },
+      { title: 'Photos', component: ListPage,icon: 'ios-image-outline' },
+      { title: 'Available Missions', component: ListPage,icon: 'ios-image-outline' },
+      { title: 'My Missions', component: ListPage,icon: 'ios-image-outline' },
+      { title: 'Chat', component: ListPage,icon: 'ios-chatboxes-outline' }
 
     ];
   }

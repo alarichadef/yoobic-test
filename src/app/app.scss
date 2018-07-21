@@ -14,3 +14,30 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.logo {
+  padding: 20px 0;
+  min-height: 200px;
+  text-align: center;
+
+  img {
+    max-width: 150px;
+  }
+}
+
+ion-menu{
+ ion-content{
+	align-content: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	background-color: #EAEDF4 !important;
+	button{
+		background-color: #EAEDF4 !important;
+		padding-left: 50px !important;
+	}
+	ion-item{
+		text-align: center !important;
+		background-color: #EAEDF4 !important;
+	}
+ }
+}
