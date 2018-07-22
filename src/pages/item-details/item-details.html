@@ -70,6 +70,16 @@
                   </ion-row>
                 </div>
             </ion-col>
+             <ion-col >
+                  <ion-row>
+                   List of its types: 
+                  </ion-row>
+                <div *ngFor="let data of pokemon.types; let i=index">
+                  <ion-row >
+                     -{{data.type.name}} 
+                  </ion-row>
+                </div>
+            </ion-col>
           </ion-row>
           </ion-item>
         </ion-list>
