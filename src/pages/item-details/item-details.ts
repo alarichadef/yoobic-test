@@ -8,10 +8,12 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'item-details.html'
 })
 export class ItemDetailsPage {
-  selectedItem: any;
+  pokemon: [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+    console.log(navParams);
+    this.pokemon = navParams.get('pokemon')['0'];
+    console.log('aa',this.pokemon);
   }
 }

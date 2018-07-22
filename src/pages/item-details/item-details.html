@@ -3,16 +3,97 @@
     <button menuToggle *ngIf="!selectedItem">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Item Details</ion-title>
+    <ion-title>Details about  {{pokemon.name}} </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <h3 text-center *ngIf="selectedItem">
-    {{selectedItem.title}}
-    <ion-icon [name]="selectedItem.icon"></ion-icon>
-  </h3>
-  <h4 text-center *ngIf="selectedItem">
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </h4>
+  <ion-col col-12 col-md-6 align-self-stretch align-self-center >
+    <ion-card >
+      <ion-card-header>
+        <ion-item >
+          <ion-avatar item-start>
+            <img src="{{pokemon.sprites.back_default}}" alt="Pokemon pic">
+          </ion-avatar>
+          <ion-row >
+            <ion-col text-capitalize text-lg-left>
+              {{pokemon.name}} 
+            </ion-col>
+             <ion-col text-lg-right text-right>
+              Pokemon ID : {{pokemon.id}} 
+            </ion-col>
+         </ion-row>
+         <p> Main type: {{pokemon.types[0].type.name}}  </p>
+         <div text-right>
+              Last Appeareance: {{pokemon.game_indices[0].version.name}}
+          </div>
+        </ion-item>
+      </ion-card-header>
+      <img id='fond' src="{{pokemon.sprites.front_default}}">
+      <ion-card-content class="outer-content">
+        <ion-list>
+          <ion-item>
+            <div text-left>
+              This is {{pokemon.name}}, it's a very nice Pokemon !
+            </div>
+          </ion-item>
+           <ion-item>
+            <div text-left>
+              Weight : {{pokemon.weight}} kg !
+            </div>                </ion-item> 
+          <ion-item>
+             <div text-left>
+              This is a {{pokemon.types[0].type.name}} Pokemon !
+            </div>
+          </ion-item>
+          <ion-item>
+          <ion-row>
+                <ion-col >
+                  <ion-row>
+                   List of its abilities: 
+                  </ion-row>
+                <div *ngFor="let data of pokemon.abilities">
+                  <ion-row >
+                     -{{data.ability.name}} 
+                  </ion-row>
+                </div>
+            </ion-col>
+            <ion-col >
+                  <ion-row>
+                   List of its 10 first moves: 
+                  </ion-row>
+                <div *ngFor="let data of pokemon.moves; let i=index">
+                  <ion-row >
+                    <div *ngIf="i<10">
+                     -{{data.move.name}} 
+                    </div>
+                  </ion-row>
+                </div>
+            </ion-col>
+          </ion-row>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      <ion-row >
+        <ion-col >
+          <button ion-button icon-start clear small color="primary">
+           <ion-icon name="thumbs-up"></ion-icon>
+           <div>{{pokemon.id}} Likes</div>
+          </button>
+        </ion-col>
+        <ion-col >
+          <button ion-button clear small color="primary" icon-start >
+            <ion-icon name='share-alt'></ion-icon>
+            Share
+          </button>
+        </ion-col>
+        <ion-col >
+          <button ion-button clear small color="primary" icon-start >
+            <ion-icon name="logo-twitter"></ion-icon>
+            Tweet
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-col>
 </ion-content>

@@ -35,7 +35,7 @@ export class ListPage {
 
   loadItems(){
     for (var i = 0; i < 3; i++) {
-      var c = Math.floor(Math.random() * 800) + 1;
+      var c = Math.floor(Math.random() * 750) + 1;
       this.ListServiceProvider.load("item",c)
       .then(data => {
         this.items.push(
@@ -46,9 +46,11 @@ export class ListPage {
     }
   }
 
-  itemTapped(event, item) {
+  pokemonTapped(pokemon:any) {
     this.navCtrl.push(ItemDetailsPage, {
-      item: item
+      pokemon: pokemon
     });
   }
+
+
 }
