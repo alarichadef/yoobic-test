@@ -1,3 +1,25 @@
 page-list {
+	
 
+	.scroll-content {
+		align-content: center;
+		flex-direction: column;
+		justify-content: center!important;
+		text-align: center;
+		background-color: #EAEDF4;
+	}
+	.toolbar-background-md{
+		background:  #ffffff !important;
+	}
+	#navlist{
+		text-align: center;
+	}
+	ion-card-content {
+      flex: 1 1 auto;
+    }
+   #fond{
+		  width: auto;
+		  margin: auto;
+		  display: block;
+   }
 }

@@ -1,20 +1,162 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar id = 'navlist'>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>LOGO</ion-title>
+        <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon ios="ios-options-outline" md="md-options"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
+  <ion-segment [(ngModel)]="nintendo" >
+    <ion-segment-button value="pokemons">
+      POKEMONS
+    </ion-segment-button>
+    <ion-segment-button value="items">
+      ITEMS
+    </ion-segment-button>
+    <ion-segment-button value="berries">
+      BERRIES
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
+  <div [ngSwitch]="nintendo">
+      <ion-list *ngSwitchCase="'pokemons'">
+        <div *ngFor="let pokemon of pokemons">
+          <ion-col col-12 col-md-6 align-self-stretch align-self-center >
+
+            <ion-card >
+              <ion-card-header>
+                <ion-item >
+                  <ion-avatar item-start>
+                    <img src="{{pokemon['0'].sprites.front_default}}" alt="Pokemon pic">
+                  </ion-avatar>
+                  <ion-row >
+                    <ion-col text-capitalize text-lg-left>
+                      {{pokemon['0'].name}} 
+                    </ion-col>
+                     <ion-col text-lg-right>
+                      Pokemon ID : {{pokemon['0'].id}} 
+                    </ion-col>
+                 </ion-row>
+                 <p> Main type: {{pokemon['0'].types[0].type.name}}  </p>
+                 <div text-right>
+                      Last Appeareance: {{pokemon['0'].game_indices[0].version.name}}
+                  </div>
+                </ion-item>
+              </ion-card-header>
+
+              <img id='fond' src="{{pokemon['0'].sprites.back_default}}">
+
+              <ion-card-content class="outer-content">
+                <ion-list>
+                  <ion-item>
+                    <div text-left>
+                      This is {{pokemon['0'].name}}, it's a very nice Pokemon !
+                    </div>
+                  </ion-item>
+                   <ion-item>
+                    <div text-left>
+                      This is its weight : {{pokemon['0'].weight}} kg !
+                    </div>                </ion-item> 
+                  <ion-item>
+                     <div text-left>
+                      This is a {{pokemon['0'].types[0].type.name}} Pokemon !
+                    </div>
+                  </ion-item>
+                </ion-list>
+              </ion-card-content>
+
+              <ion-row >
+                <ion-col >
+                  <button ion-button icon-start clear small color="primary">
+                   <ion-icon name="thumbs-up"></ion-icon>
+                   <div>{{pokemon['0'].id}} Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col >
+                  <button ion-button clear small color="primary" icon-start >
+                    <ion-icon name='share-alt'></ion-icon>
+                    Share
+                  </button>
+                </ion-col>
+                <ion-col >
+                  <button ion-button clear small color="primary" icon-start >
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    Tweet
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+        </div>
+      </ion-list>
+      <ion-list *ngSwitchCase="'items'">
+        <div *ngFor="let item of items">
+         <ion-col col-12 col-md-6 align-self-stretch align-self-center >
+          <ion-card >
+            <ion-card-header>
+              <ion-item >
+                <ion-avatar item-start>
+                  <img src="{{item['0'].sprites.default}}" alt="Pokemon pic">
+                </ion-avatar>
+                <ion-row >
+                  <ion-col text-capitalize text-lg-left>
+                     {{item['0'].name}} 
+                  </ion-col>
+                  <ion-col text-lg-right>
+                   Item ID : {{item['0'].id}} 
+                  </ion-col>
+                </ion-row>
+                <p> Cost: {{item['0'].cost}}  </p>
+                <div text-right>
+                  Category: {{item['0'].category.name}}
+                </div>
+            </ion-item>
+          </ion-card-header>
+          
+          <img id='fond' src="{{item['0'].sprites.default}}">
+
+          <ion-card-content class="outer-content">
+            <ion-list>
+              <ion-item>
+                <div text-left>
+                  {{item['0'].effect_entries[0].short_effect}}
+                </div>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+
+            <ion-row >
+              <ion-col >
+                <button ion-button icon-start clear small color="primary">
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>{{item['0'].id}} Likes</div>
+                </button>
+              </ion-col>
+              <ion-col >
+                <button ion-button clear small color="primary" icon-start >
+                  <ion-icon name='share-alt'></ion-icon>
+                  Share
+                </button>
+              </ion-col>
+              <ion-col >
+                <button ion-button clear small color="primary" icon-start >
+                  <ion-icon name="logo-twitter"></ion-icon>
+                  Tweet
+                </button>
+              </ion-col>
+            </ion-row>
+
+          </ion-card>
+
+        </ion-col>
       </div>
-    </button>
-  </ion-list>
+    </ion-list>
+  </div>
 </ion-content>

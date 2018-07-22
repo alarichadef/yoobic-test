@@ -12,6 +12,7 @@ export class HelloIonicPage {
     this.menuCtrl.swipeEnable(false);
   }
   login(){
+  	this.navCtrl.setRoot(ListPage);
   }
 
 }
