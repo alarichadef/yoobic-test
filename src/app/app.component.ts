@@ -4,6 +4,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
+import { ChatPage } from '../pages/chat/chat';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +34,7 @@ export class MyApp {
       { title: 'Photos', component: ListPage,icon: 'ios-image-outline' },
       { title: 'Available Missions', component: ListPage,icon: 'ios-image-outline' },
       { title: 'My Missions', component: ListPage,icon: 'ios-image-outline' },
-      { title: 'Chat', component: ListPage,icon: 'ios-chatboxes-outline' }
+      { title: 'Chat', component: ChatPage,icon: 'ios-chatboxes-outline' }
 
     ];
   }
@@ -51,6 +52,9 @@ export class MyApp {
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
+    if(page.title == "Chat")
+     this.nav.push(page.component);
+    else
+     this.nav.setRoot(page.component);
   }
 }
