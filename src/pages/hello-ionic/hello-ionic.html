@@ -1,18 +1,33 @@
 <ion-content padding>
-  <form (submit)="login()">
+  <form  [formGroup]="authForm" (ngSubmit)="onSubmit(authForm.value)">
     <div class="logo">
       <img src="assets/imgs/appicon.svg" alt="YoobicLogo">
     </div>
     <p>Sign in</p>
     <ion-list no-line>
-      <ion-item>
+      <ion-item [ngClass]="{'error-border':!authForm.controls.email.valid && authForm.controls.email.touched}">
         <ion-label><ion-icon name="ios-mail-outline"></ion-icon></ion-label>
-        <ion-input type="text" placeholder="Username"></ion-input>
+        <ion-input type="text" formControlName="email" [(ngModel)]="email" name = "email" placeholder="Username" required></ion-input>
       </ion-item>
-      <ion-item>
+        <ion-item *ngIf="authForm.controls.email.hasError('required') && authForm.controls.email.touched">
+            <p>Sorry, field email is required!</p>
+        </ion-item>     
+        <ion-item *ngIf="authForm.controls.email.hasError('minlength') && authForm.controls.email.touched">
+            <p>Sorry, minimum email length is 8!</p>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.email.hasError('maxlength') && authForm.controls.email.touched">
+            <p>Sorry, maximum email length is 40!</p>
+        </ion-item>
+      <ion-item  [ngClass]="{'error-border':!authForm.controls.password.valid && authForm.controls.password.touched}"> 
         <ion-label><ion-icon name="ios-lock-outline"></ion-icon></ion-label>
-        <ion-input type="password" placeholder="Password"></ion-input>
+        <ion-input type="password" formControlName="password" [(ngModel)]="password" name = "password" placeholder="Password" required></ion-input>
       </ion-item>
+      <ion-item *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+            <p>Sorry, field password is required!</p>
+        </ion-item>
+        <ion-item *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+            <p>Sorry, minimum password length is 5!</p>
+        </ion-item>  
       <a color = "greyoobic" id="forgot">Forgot password?</a>
       <p color = "primary">Sign in with</p>
       <a> <ion-icon name="logo-facebook" id="fb"></ion-icon></a>
@@ -21,7 +36,7 @@
           <button ion-button block outline class="signup" >Sign Up</button>
         </ion-col>
         <ion-col>
-          <button ion-button block outline class="signin" >Sign In</button>
+          <button ion-button block outline class="signin"  [disabled]="!authForm.valid" >Sign In</button>
         </ion-col>
       </ion-row>
     </ion-list>

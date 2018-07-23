@@ -11,6 +11,18 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListServiceProvider } from '../providers/list-service/list-service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { IonicStorageModule } from '@ionic/storage';
+
+const config = {
+    apiKey: "AIzaSyDwfQTg7Xx4mX-uT6Jlk3w_4osOr-rze3A",
+    authDomain: "yoobic-6d2b6.firebaseapp.com",
+    databaseURL: "https://yoobic-6d2b6.firebaseio.com",
+    projectId: "yoobic-6d2b6",
+    storageBucket: "yoobic-6d2b6.appspot.com",
+    messagingSenderId: "1007902300154"
+  };
 
 @NgModule({
   declarations: [
@@ -24,6 +36,9 @@ import { ListServiceProvider } from '../providers/list-service/list-service';
     HttpModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    IonicStorageModule.forRoot(),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +53,8 @@ import { ListServiceProvider } from '../providers/list-service/list-service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ListServiceProvider,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    AngularFireAuth,
   ]
 })
 export class AppModule {}
