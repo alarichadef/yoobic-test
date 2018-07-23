@@ -35,6 +35,7 @@ export class HelloIonicPage {
           email: response.user.email,
         };
         this.storage.set('username',currentuser.email);
+        window.localStorage.setItem('username', currentuser.email);
         this.navCtrl.setRoot(ListPage);
       }).catch((error) => {
         console.log(error);

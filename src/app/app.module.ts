@@ -15,6 +15,7 @@ import { ListServiceProvider } from '../providers/list-service/list-service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireDatabaseModule, AngularFireObject, AngularFireList } from 'angularfire2/database';
 
 const config = {
     apiKey: "AIzaSyDwfQTg7Xx4mX-uT6Jlk3w_4osOr-rze3A",
@@ -40,6 +41,7 @@ const config = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(config),
     IonicStorageModule.forRoot(),
+    AngularFireDatabaseModule
 
   ],
   bootstrap: [IonicApp],

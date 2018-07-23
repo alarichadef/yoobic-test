@@ -21,8 +21,8 @@ export class ListPage {
 
 
   loadPokemons(){
-    for (var i = 0; i < 3; i++) {
-      var c = Math.floor(Math.random() * 3) + 4;
+    for (var i = 0; i < 10; i++) {
+      var c = Math.floor(Math.random() * 150) + 1;
       this.ListServiceProvider.load("pokemon",c)
       .then(data => {
         this.pokemons.push(
@@ -34,7 +34,7 @@ export class ListPage {
   }
 
   loadItems(){
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 10; i++) {
       var c = Math.floor(Math.random() * 750) + 1;
       this.ListServiceProvider.load("item",c)
       .then(data => {
@@ -42,7 +42,6 @@ export class ListPage {
         data
         );
       });
-      console.log(this.items);
     }
   }
 
