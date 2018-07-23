@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ListServiceProvider {
   apiUrl = 'https://pokeapi.co/api/v2/';
-
+  data: any;
   constructor(public http: HttpClient) {
     console.log('Hello ListServiceProvider Provider');
   }

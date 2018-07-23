@@ -16,7 +16,7 @@ export class ListPage {
       this.menuCtrl.swipeEnable(true);
       this.loadPokemons();
       this.loadItems();
-      this.nintendo = "pokemons";
+      //this.nintendo = "pokemons";
     }
 
 
